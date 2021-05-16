@@ -1,6 +1,8 @@
 #include <bits/stdc++.h> 
 using namespace std; 
   
+// CONCEPT USED: BINARY SEARCH
+
 int findMaximumValue(int arr[], int low, int high)  
 {  
     if(low==high)

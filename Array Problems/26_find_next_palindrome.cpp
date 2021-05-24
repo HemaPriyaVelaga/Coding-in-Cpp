@@ -2,6 +2,24 @@
   
 void printArray (int arr[], int n); 
   
+void swap_ele(int *pal[], int n)
+{
+    for(i=0;i<n/2;i++)
+    {
+        pal[n-i-1] = pal[i];
+    }
+}
+
+
+void even_case(int arr[], int n)
+{
+    for(i=0;i<n/2;i++)
+    {
+        pal[n-i-1] = pal[i];
+    }
+}
+
+
 
 int exceptionCheckAll9s (int num[], int n ); 
   
@@ -41,19 +59,13 @@ void nextPalindromeProblem (int arr[], int n )
          int midleft = (n-1)/2, midright = (n-1)/2 + 1;
          if(pal[midleft]>pal[midright])
          {
-             for(i=0;i<n/2;i++)
-             {
-                 pal[n-i-1] = pal[i];
-             }
+             swap_ele(pal, n);
          }
          
          else if(pal[midleft]<pal[midright])
          {
              pal[midleft]++;
-             for(i=0;i<n/2;i++)
-             {
-                 pal[n-i-1] = pal[i];
-             }
+             swap_ele(pal, n);
              
          }
          else
@@ -73,19 +85,13 @@ void nextPalindromeProblem (int arr[], int n )
              {
                 if(pal[midleft]>pal[midright])
                  {
-                    for(i=0;i<n/2;i++)
-                     {
-                         pal[n-i-1] = pal[i];
-                     }
+                    swap_ele(pal, n);
                 }
          
                  else if(pal[midleft]<pal[midright])
                  {
                     pal[midleft]++;
-                    for(i=0;i<n/2;i++)
-                    {
-                        pal[n-i-1] = pal[i];
-                    }
+                    swap_ele(pal, n);
              
                 }
              }
@@ -98,19 +104,12 @@ void nextPalindromeProblem (int arr[], int n )
          int mid = 0 + (n-1)/2;
          if(pal[mid-1]>pal[mid+1])
          {
-             for(i=0;i<n/2;i++)
-             {
-                 pal[n-i-1] = pal[i];
-             }
+            swap_ele(pal, n);
          }
          else if(pal[mid]<pal[mid+1])
          {
-             pal[mid]++;
-             for(i=0;i<n/2;i++)
-             {
-                 pal[n-i-1] = pal[i];
-             }
-             
+            pal[mid]++;
+            swap_ele(pal, n);
          }
          
          else
@@ -124,26 +123,25 @@ void nextPalindromeProblem (int arr[], int n )
              if(midright == n-1 && midleft ==0 && pal[midright]==pal[midleft])
              {
                   //midleft = (n-1)/2, midright = (n-1)/2 + 1;
+                  int i=mid;
+                  while(arr[i]==9)
+                  {
+                      i--;
+                  }
                   arr[mid]++;
                   //arr[midright]++;
              }
              else
              {
                 if(pal[midleft]>pal[midright])
-                 {
-                    for(i=0;i<n/2;i++)
-                     {
-                         pal[n-i-1] = pal[i];
-                     }
+                {
+                    swap_ele(pal, n);
                 }
          
                  else if(pal[midleft]<pal[midright])
                  {
                     pal[midleft]++;
-                    for(i=0;i<n/2;i++)
-                    {
-                        pal[n-i-1] = pal[i];
-                    }
+                    swap_ele(pal, n);
              
                 }
              }
